@@ -4,7 +4,8 @@ class View
       puts "Here are all of your recipes:"
       puts
       recipes.each_with_index do |recipe, index|
-        puts "#{index + 1}. #{recipe.name} - #{recipe.description}"
+        xmark = recipe.done? ? "X" : " "
+        puts "#{index + 1}. [#{xmark}] #{recipe.name} - #{recipe.description} Rating: #{recipe.rating}, Prep: #{recipe.prep_time}"
       end
     else
       puts "You don't have any recipes yet... 🍽"
@@ -17,7 +18,7 @@ class View
   end
 
   def ask_for_index
-    puts "Which recipe would you like to delete?"
+    puts "Which number?"
     gets.chomp.to_i - 1
   end
 end
